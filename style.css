@@ -1,5 +1,4 @@
 
-
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap");
 
 :root {
@@ -294,9 +293,37 @@ img {
     width: calc(100% - 48px);
     margin: 0 auto;
     height: auto;
-    margin-top: 113px;
+    top: 113px;
     z-index: 1;
     left: 24px;
+    -webkit-animation: showCart 0.2s forwards;
+            animation: showCart 0.2s forwards;
+  }
+
+  @-webkit-keyframes showCart {
+    from {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes showCart {
+    from {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 1;
+    }
   }
 
   .container_cart {
@@ -311,8 +338,8 @@ img {
 
   .row_3 {
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     width: 100%;
   }
 
@@ -328,7 +355,7 @@ img {
     font-size: 15px;
     line-height: 25px;
     -webkit-text-decoration-line: underline;
-            text-decoration-line: underline;
+    text-decoration-line: underline;
     color: #000000;
     opacity: 0.5;
     cursor: pointer;
@@ -345,11 +372,11 @@ img {
 
   .row_4 {
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     margin-top: 24px;
   }
 
@@ -359,8 +386,8 @@ img {
 
   .img_cart_item {
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
   }
 
   .img_cart_item img {
@@ -389,8 +416,8 @@ img {
 
   .row_5 {
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     background-color: var(--grey);
   }
 
@@ -405,9 +432,9 @@ img {
     padding-top: 7px;
     padding-bottom: 7px;
     -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     -webkit-transition: 0.2s;
     -o-transition: 0.2s;
     transition: 0.2s;
@@ -438,8 +465,8 @@ img {
 
   .row_6 {
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     margin-bottom: 24px;
   }
 
