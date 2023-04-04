@@ -4,16 +4,11 @@ let jsonData = [];
 async function fetchData() {
   try {
     const response = await fetch("data.json");
-    jsonData = await response.json();
-    return jsonData;
+    data = await response.json();
+    return data;
   } catch (error) {
     console.error("Erreur :", error);
   }
-}
-
-async function main() {
-  await fetchData();
-  displayHeadphones();
 }
 
 const route = (event) => {
@@ -44,9 +39,15 @@ const handleLocation = async () => {
   xhr.send();
 
   if (path === "/headphones") {
-    main();
+    displayHeadphones();
+  } else if (path === "/speakers") {
+    displaySpeakers();
+  } else if (path === "/earphones") {
+    // displayEarphones
   }
 };
+
+console.log(jsonData);
 
 handleLocation();
 
@@ -101,8 +102,7 @@ displayMenu();
 displayCart();
 
 function displayHeadphones() {
-  const products = document.querySelector(".col_17");
-  console.log(jsonData);
+  const products = document.querySelector(".col_headphones");
 
   products.innerHTML = jsonData
     .filter((product) => product.category === "headphones")
@@ -113,7 +113,35 @@ function displayHeadphones() {
       alt=""
     />
     <div class="col col_19">
-      <p class="normal new_product">new product</p>
+      <p class="normal ${
+        product.new === true ? "new_product" : "none"
+      }">new product</p>
+      <p class="bold">${product.name}</p>
+      <p class="medium">
+        ${product.description}
+      </p>
+      <a href="#" class="bold product_btn">see product</a>
+    </div>
+  </div>`;
+    })
+    .join("");
+}
+
+function displaySpeakers() {
+  const products = document.querySelector(".col_speakers");
+
+  products.innerHTML = jsonData
+    .filter((product) => product.category === "speakers")
+    .map((product) => {
+      return `<div class="col col_18" data-product-id="${product.id}">
+    <img
+      src="${product.image.mobile}"
+      alt=""
+    />
+    <div class="col col_19">
+      <p class="normal ${
+        product.new === true ? "new_product" : "none"
+      }">new product</p>
       <p class="bold">${product.name}</p>
       <p class="medium">
         ${product.description}
