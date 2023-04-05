@@ -90,6 +90,10 @@ img {
   padding: 15px 30px;
 }
 
+.none {
+  display: none;
+}
+
 @media (min-width: 375px) {
   #hero {
     position: relative;
@@ -1075,7 +1079,6 @@ img {
   }
 
   .col_17 {
-    padding-top: 64px;
     width: 100%;
     position: relative;
     -webkit-box-orient: vertical;
@@ -1091,10 +1094,6 @@ img {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-  }
-
-  .col_18:nth-child(3) {
-    padding-top: 0;
   }
 
   .col_18 img {
@@ -1116,6 +1115,7 @@ img {
     letter-spacing: 10px;
     text-transform: uppercase;
     color: var(--orange);
+    padding-bottom: 24px;
   }
 
   .col_19 p:nth-child(2) {
@@ -1125,7 +1125,7 @@ img {
     letter-spacing: 1px;
     text-transform: uppercase;
     color: black;
-    padding: 24px 0;
+    padding-bottom: 24px;
   }
 
   .col_19 p:nth-child(3) {
