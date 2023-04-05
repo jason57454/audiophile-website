@@ -1,11 +1,11 @@
 var links = document.querySelectorAll(".link");
-let jsonData = [];
+let jsonData = null;
 
 async function fetchData() {
   try {
     const response = await fetch("data.json");
-    data = await response.json();
-    return data;
+    const data = await response.json();
+    jsonData = data;
   } catch (error) {
     console.error("Erreur :", error);
   }
@@ -25,10 +25,9 @@ const routes = {
   "/earphones": "/pages/earphones.html",
 };
 
-const handleLocation = async () => {
+const handleLocation = () => {
   const path = window.location.pathname;
   const route = routes[path] || routes[404];
-
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
@@ -47,9 +46,7 @@ const handleLocation = async () => {
   }
 };
 
-console.log(jsonData);
-
-handleLocation();
+fetchData().then(() => handleLocation());
 
 window.onpopstate = handleLocation;
 
@@ -103,7 +100,6 @@ displayCart();
 
 function displayHeadphones() {
   const products = document.querySelector(".col_headphones");
-
   products.innerHTML = jsonData
     .filter((product) => product.category === "headphones")
     .map((product) => {
@@ -130,7 +126,7 @@ function displayHeadphones() {
 function displaySpeakers() {
   const products = document.querySelector(".col_speakers");
 
-  products.innerHTML = jsonData
+  products.innerHTML = data
     .filter((product) => product.category === "speakers")
     .map((product) => {
       return `<div class="col col_18" data-product-id="${product.id}">
